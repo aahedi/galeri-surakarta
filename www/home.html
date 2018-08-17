@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Galeri Gambar</title>
+<meta name='description' content='Galeri Gambar'>
+<meta name='author' content='Aahedi'>
+<link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+<script src="cordova.js"></script>
+</head>
+<body onload="onload()">
+<h1>RUANG KREATIF KOTA SURAKARTA</h1>
+
+<ol type="1" id="display"></ol>
+
+</body>
+
+<script>
+function tarik_JSON(arr) {
+    var out = "";
+    var i;
+	var g = "";
+	var a; 
+    for(i = 0; i<arr.length; i++) {
+	var id = i+1;
+        out += '<li class="maindiv"><div style="height:200px">'+
+		'<a data-fancybox data-type="iframe" data-src="detail.html?id='+ id +'" href="javascript:;">'
+		
+    for(a = 0; a < arr[i].url_gambar.length; a++) {
+		var hg ='';
+		if(arr[i].url_gambar.length == '1'){hg = '100%'}
+		else if(arr[i].url_gambar.length == '2'){hg = '50%'}
+		else{hg = '33%'}
+		g ='<img src="'+ arr[i].url_gambar[a] +'" class="img-responsive thumbnail" style="height:'+hg+'"/>';
+		out += g;
+		}
+		out +=
+		'</div><div><h3 class="Vtitle"><a data-fancybox data-type="iframe" data-src="detail.html?id=' + id + '" href="javascript:;">' + arr[i].nama + '</a></h3>'+
+                        '</div>' +
+                        '</li>' ;
+    }
+    document.getElementById("display").innerHTML = out;
+}
+document.addEventListener("keydown", KeyCheck);  //or however you are calling your method
+function KeyCheck(event)
+{
+   var KeyID = event.keyCode;
+   switch(KeyID)
+   {
+      case 8:
+      //alert("backspace");
+	  parent.$.fancybox.close();
+      break; 
+      case 46:
+      //alert("delete");
+      break;
+      default:
+      break;
+   }
+}
+
+function onload() {
+            document.addEventListener('deviceready', deviceReady, false);
+        }
+
+        function deviceReady() {
+            document.addEventListener('backbutton', backButtonCallback, false);
+        }
+
+         function backButtonCallback() {
+		 
+          if (document.getElementsByClassName('fancybox-container') == null) {
+			navigator.notification.confirm('Keluar dari aplikasi?',confirmCallback,
+			nama_aplikasi,
+			'Ok,Cancel');
+			}
+          else{parent.$.fancybox.close();}
+         }
+		 
+         function confirmCallback(buttonIndex) {
+            if(buttonIndex == 1) {
+             navigator.app.exitApp();
+        return true;
+        }
+        else {
+        return false
+    }
+}
+</script>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery.fancybox.min.js"></script>
+<script src="js/rsspond.js"></script>
+<script src="data.js"></script>
+
+</html>

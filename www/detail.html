@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Detail Galeri Gambar</title>
+<meta name='description' content='Galeri Gambar'>
+<meta name='author' content='Aahedi'>
+<link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<ol type="1" id="display"></ol>
+</body>
+
+<script>
+function getURLParameter(name) {
+  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+};
+
+function tarik_JSON(arr) {
+    var out = "";
+    var i;
+	var g = "";
+	var a; 
+    for(i = getURLParameter('id')-1; i<getURLParameter('id'); i++) {
+        out += '<h3 style="text-align:center">'+arr[i].nama+'</h3><div>'
+		
+    for(a = 0; a < arr[i].url_gambar.length; a++) {
+		
+		g ='<img src="'+ arr[i].url_gambar[a] +'" style="width:100%"/>';
+		out += g;
+		}
+		out +=
+		'<ul><li><b>Alamat</b>: '+arr[i].alamat+'</li>'+
+		'<li><b>Tahun didirikan</b>: '+arr[i].tahun+'</li>'+
+		'<li><b>Contact Person</b>: '+arr[i].kontak+'</li>'+
+		'<li><b>Nomor Telepon</b>: '+arr[i].telepon+'</li>'+
+		'<li><b>Aksesibilitas</b>: '+arr[i].akses+'</li>'+
+		'<li><b>Kapasitas Rata-rata</b>: '+arr[i].kapasitas+'</li>'+
+		'<li>'+arr[i].deskripsi+'</li>'+
+                        '</ul></div>';
+    }
+    document.getElementById("display").innerHTML = out;
+}
+</script>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery.fancybox.min.js"></script>
+<script src="js/rsspond.js"></script>
+<script src="data.js"></script>
+
+</html>

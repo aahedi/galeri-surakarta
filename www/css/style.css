@@ -1,0 +1,130 @@
+*{font-family:arial}
+body {
+  counter-reset: maindiv;
+}
+.maindiv:before {
+  content: counter(maindiv)".";
+}
+.maindiv{	
+  position: relative;
+  counter-increment: maindiv;
+    display: inline-block;
+    max-width:98%;
+    width: 265px;
+    height: auto;
+    overflow: hidden;
+    margin: 0px;
+    background: url() no-repeat center top;
+    vertical-align: top;
+    word-wrap: break-word;
+    border: none;
+    border-width: thin;
+}
+.maindiv div{margin:10px}
+.img-responsive{width:100%;}
+a{text-decoration:none}
+.fancybox-slide--iframe .fancybox-content {
+	width  : 720px;
+	height : 480px;
+	max-width  : 100%;
+	max-height : 100%;
+	margin: 0;
+}
+.Vtitle a{font-size:16px;color:#000}
+.cTitle a{font-size:14px;color:#000}
+#display{
+	display: block;
+	padding:0;
+	list-style-type: decimal !important;
+}
+h1{text-align:center}
+thead {
+    border-bottom: #000 3px double;;
+}
+table, td, th {
+    border: #000 1px solid;
+}
+td, th {
+    padding: 2px;
+    width: 100px;
+    overflow: hidden;
+    font-size: 16px;
+}
+tr{
+  text-align: center;
+}
+td:nth-child(even) a{
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: black;
+  }
+td:nth-child(odd) a{color: blue;font-weight:bold}
+	   
+#wordFreq{
+width:fit-content;
+overflow:auto;
+margin: 0 auto;
+}
+
+#kolom,#kolom2{
+    position: fixed;
+    bottom: 0;
+    background: #ddd;
+    width: fit-content;
+    height: 20%;
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    float: left;
+    border: 1px #666 solid;
+    padding: 5px;
+}
+#kolom2{
+    float: right;
+    right: 0;
+    height: 27%;
+}
+.js-rsspond{
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+}
+#country{
+    position: fixed;
+    margin: 15px;
+    padding: 0;
+    top: 0;
+    z-index: 999;
+}
+
+    @media only screen and (max-width : 360px) {
+      /* Smartphone view: 1 tile */
+      .maindiv {
+        width: 50%;
+       }
+    }
+    @media only screen and (max-width : 480px) {
+      /* Smartphone view: 1 tile */
+      .maindiv {
+        width: 50%;
+      }
+    }
+    @media only screen and (max-width : 650px) and (min-width : 481px) {
+      /* Tablet view: 2 tiles */
+      .maindiv {
+        width: 33.3%;
+      }
+    }
+    @media only screen and (max-width : 1050px) and (min-width : 651px) {
+      /* Small desktop / ipad view: 3 tiles */
+      .maindiv {
+        width: 25%;
+      }
+    }
+    @media only screen and (max-width : 1290px) and (min-width : 1051px) {
+      /* Medium desktop: 4 tiles */
+      .maindiv {
+        width: 25%;
+      }
+    }
