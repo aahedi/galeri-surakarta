@@ -61,7 +61,7 @@ function KeyCheck(event)
    }
 }
 
-function onload() {
+        function onload() {
             document.addEventListener('deviceready', deviceReady, false);
         }
 
@@ -71,7 +71,7 @@ function onload() {
 
          function backButtonCallback() {
 		 
-          if (document.getElementsByClassName('fancybox-container') == null) {
+          if (document.getElementsByClassName('fancybox-container')[0] == null) {
 			navigator.notification.confirm('Keluar dari aplikasi?',confirmCallback,
 			nama_aplikasi,
 			'Ok,Cancel');
@@ -81,13 +81,10 @@ function onload() {
 		 
          function confirmCallback(buttonIndex) {
             if(buttonIndex == 1) {
-             navigator.app.exitApp();
-        return true;
-        }
-        else {
-        return false
-    }
-}
+				navigator.app.exitApp();
+				return true;
+				}
+		}
 </script>
 
 <script src="js/jquery-3.3.1.min.js"></script>
